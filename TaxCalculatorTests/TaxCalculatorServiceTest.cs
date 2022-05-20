@@ -24,6 +24,13 @@ namespace TaxCalculatorTests
         }
 
         [Test]
+        public void Add_TaxSubmission_All_Test()
+        {
+            var obj = service.PostTaxSubmission(new TaxSubmissionSubmit { AnnualIncome = 123456, PostalCode = "7000" });
+            Assert.AreEqual(obj?.AnnualIncome, 123456);
+        }
+
+        [Test]
         public void Get_TaxSubmission_All_Test()
         {
             var obj = service.GetTop10();

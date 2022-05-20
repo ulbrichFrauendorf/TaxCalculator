@@ -40,7 +40,7 @@ namespace TaxCalculatorAPI.Migrations
                         {
                             ApiUserId = 1,
                             Email = "admin@testsite.com",
-                            Password = "$2a$11$DIaEwbaG5tvMC9NEe3sdkOjRSBwG53BUw5IdA4FzLerYWfc/FK/86"
+                            Password = "$2a$11$g2scD.CznFok8NhKilEXi.f/eiBhbkhvryM1pmpdWLFtYbED3ycxq"
                         });
                 });
 

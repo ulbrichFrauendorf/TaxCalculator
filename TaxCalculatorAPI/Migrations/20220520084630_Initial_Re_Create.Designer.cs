@@ -11,8 +11,8 @@ using TaxCalculatorAPI.Data;
 namespace TaxCalculatorAPI.Migrations
 {
     [DbContext(typeof(SqliteDataContext))]
-    [Migration("20220517141646_AddedTaxCalulatorDataModel")]
-    partial class AddedTaxCalulatorDataModel
+    [Migration("20220520084630_Initial_Re_Create")]
+    partial class Initial_Re_Create
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,7 +42,7 @@ namespace TaxCalculatorAPI.Migrations
                         {
                             ApiUserId = 1,
                             Email = "admin@testsite.com",
-                            Password = "$2a$11$6N1TqM6rPPHxTnt.SSVNOuYrY.k2vbkUNTc2X21ac/Z3HM8vN8dQy"
+                            Password = "$2a$11$g2scD.CznFok8NhKilEXi.f/eiBhbkhvryM1pmpdWLFtYbED3ycxq"
                         });
                 });
 
@@ -66,6 +66,15 @@ namespace TaxCalculatorAPI.Migrations
                     b.HasIndex("RateTypeId");
 
                     b.ToTable("FlatRateTaxTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            RateTypeId = 2,
+                            RateValue = 0.17499999999999999
+                        });
                 });
 
             modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.FlatValueTaxTable", b =>
@@ -76,6 +85,9 @@ namespace TaxCalculatorAPI.Migrations
 
                     b.Property<bool>("Active")
                         .HasColumnType("INTEGER");
+
+                    b.Property<double>("MaximumValue")
+                        .HasColumnType("REAL");
 
                     b.Property<double>("MinimumValue")
                         .HasColumnType("REAL");
@@ -91,21 +103,72 @@ namespace TaxCalculatorAPI.Migrations
                     b.HasIndex("RateTypeId");
 
                     b.ToTable("FlatValueTaxTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            MaximumValue = 199000.0,
+                            MinimumValue = 0.0,
+                            RateTypeId = 2,
+                            RateValue = 0.050000000000000003
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            MaximumValue = 2147483647.0,
+                            MinimumValue = 200000.0,
+                            RateTypeId = 1,
+                            RateValue = 10000.0
+                        });
                 });
 
-            modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.PostalCode", b =>
+            modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.PostalCodeTaxMap", b =>
                 {
-                    b.Property<int>("PostalCodeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Code")
+                    b.Property<string>("PostalCode")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("PostalCodeId");
+                    b.Property<int>("TaxTypeId")
+                        .HasColumnType("INTEGER");
 
-                    b.ToTable("PostalCode");
+                    b.HasKey("Id");
+
+                    b.HasIndex("TaxTypeId");
+
+                    b.ToTable("PostalCodeTaxMap");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            PostalCode = "7441",
+                            TaxTypeId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            PostalCode = "A100",
+                            TaxTypeId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            PostalCode = "7000",
+                            TaxTypeId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            PostalCode = "1000",
+                            TaxTypeId = 1
+                        });
                 });
 
             modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.ProgressiveTaxTable", b =>
@@ -134,6 +197,62 @@ namespace TaxCalculatorAPI.Migrations
                     b.HasIndex("RateTypeId");
 
                     b.ToTable("ProgressiveTaxTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            MaximumValue = 8350.0,
+                            MinimumValue = 0.0,
+                            RateTypeId = 2,
+                            RateValue = 0.10000000000000001
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            MaximumValue = 33950.0,
+                            MinimumValue = 8351.0,
+                            RateTypeId = 2,
+                            RateValue = 0.14999999999999999
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Active = true,
+                            MaximumValue = 82250.0,
+                            MinimumValue = 33951.0,
+                            RateTypeId = 2,
+                            RateValue = 0.25
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Active = true,
+                            MaximumValue = 171550.0,
+                            MinimumValue = 82251.0,
+                            RateTypeId = 2,
+                            RateValue = 0.28000000000000003
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Active = true,
+                            MaximumValue = 372950.0,
+                            MinimumValue = 171551.0,
+                            RateTypeId = 2,
+                            RateValue = 0.33000000000000002
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Active = true,
+                            MaximumValue = 2147483647.0,
+                            MinimumValue = 372951.0,
+                            RateTypeId = 2,
+                            RateValue = 0.34999999999999998
+                        });
                 });
 
             modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.RateType", b =>
@@ -148,12 +267,24 @@ namespace TaxCalculatorAPI.Migrations
 
                     b.HasKey("RateTypeId");
 
-                    b.ToTable("RateType");
+                    b.ToTable("RateTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            RateTypeId = 1,
+                            RateTypeDescription = "Amount"
+                        },
+                        new
+                        {
+                            RateTypeId = 2,
+                            RateTypeDescription = "Percentage"
+                        });
                 });
 
             modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.TaxSubmission", b =>
                 {
-                    b.Property<int>("TaxSubmissionId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -163,15 +294,15 @@ namespace TaxCalculatorAPI.Migrations
                     b.Property<double>("CalculatedTax")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("PostalCodeId")
+                    b.Property<int>("PostalCodeTaxMapId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("SubmissionDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("TaxSubmissionId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("PostalCodeId");
+                    b.HasIndex("PostalCodeTaxMapId");
 
                     b.ToTable("TaxSubmission");
                 });
@@ -189,27 +320,23 @@ namespace TaxCalculatorAPI.Migrations
                     b.HasKey("TaxTypeId");
 
                     b.ToTable("TaxType");
-                });
 
-            modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.TaxTypeSelector", b =>
-                {
-                    b.Property<int>("TaxTypeSelectorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PostalCodeId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TaxTypeId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("TaxTypeSelectorId");
-
-                    b.HasIndex("PostalCodeId");
-
-                    b.HasIndex("TaxTypeId");
-
-                    b.ToTable("TaxTypeSelector");
+                    b.HasData(
+                        new
+                        {
+                            TaxTypeId = 1,
+                            TaxTypeDescription = "Progressive"
+                        },
+                        new
+                        {
+                            TaxTypeId = 2,
+                            TaxTypeDescription = "Flat Value"
+                        },
+                        new
+                        {
+                            TaxTypeId = 3,
+                            TaxTypeDescription = "Flat Rate"
+                        });
                 });
 
             modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.FlatRateTaxTable", b =>
@@ -234,6 +361,17 @@ namespace TaxCalculatorAPI.Migrations
                     b.Navigation("RateType");
                 });
 
+            modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.PostalCodeTaxMap", b =>
+                {
+                    b.HasOne("TaxCalculatorAPI.Data.Entities.TaxType", "TaxType")
+                        .WithMany("PostalCodeTaxMaps")
+                        .HasForeignKey("TaxTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TaxType");
+                });
+
             modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.ProgressiveTaxTable", b =>
                 {
                     b.HasOne("TaxCalculatorAPI.Data.Entities.RateType", "RateType")
@@ -247,44 +385,23 @@ namespace TaxCalculatorAPI.Migrations
 
             modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.TaxSubmission", b =>
                 {
-                    b.HasOne("TaxCalculatorAPI.Data.Entities.PostalCode", "PostalCode")
+                    b.HasOne("TaxCalculatorAPI.Data.Entities.PostalCodeTaxMap", "PostalCodeTaxMap")
                         .WithMany("TaxSubmissions")
-                        .HasForeignKey("PostalCodeId")
+                        .HasForeignKey("PostalCodeTaxMapId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PostalCode");
+                    b.Navigation("PostalCodeTaxMap");
                 });
 
-            modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.TaxTypeSelector", b =>
-                {
-                    b.HasOne("TaxCalculatorAPI.Data.Entities.PostalCode", "PostalCode")
-                        .WithMany("TaxTypeSelectors")
-                        .HasForeignKey("PostalCodeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TaxCalculatorAPI.Data.Entities.TaxType", "TaxType")
-                        .WithMany("TaxTypeSelectors")
-                        .HasForeignKey("TaxTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PostalCode");
-
-                    b.Navigation("TaxType");
-                });
-
-            modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.PostalCode", b =>
+            modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.PostalCodeTaxMap", b =>
                 {
                     b.Navigation("TaxSubmissions");
-
-                    b.Navigation("TaxTypeSelectors");
                 });
 
             modelBuilder.Entity("TaxCalculatorAPI.Data.Entities.TaxType", b =>
                 {
-                    b.Navigation("TaxTypeSelectors");
+                    b.Navigation("PostalCodeTaxMaps");
                 });
 #pragma warning restore 612, 618
         }

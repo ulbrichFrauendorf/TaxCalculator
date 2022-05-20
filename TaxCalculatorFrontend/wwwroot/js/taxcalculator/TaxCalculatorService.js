@@ -12,6 +12,7 @@ $(document).ready(function () {
 });
 const submitTable = document.querySelector('#submission-table');
 const loadSubmissions = () => __awaiter(this, void 0, void 0, function* () {
+    loadPostalCodes();
     submitTable.innerHTML = '';
     let data = new DataHandlerGET('tax/submission');
     let result = yield data.fetchdata();
@@ -39,7 +40,6 @@ const loadSubmissions = () => __awaiter(this, void 0, void 0, function* () {
     const editLinks = document.getElementsByClassName('edit');
     for (const editlink of Array.from(editLinks)) {
         editlink.addEventListener("click", () => __awaiter(this, void 0, void 0, function* () {
-            loadPostalCodes();
             let dataAttribute = editlink.getAttribute('data-id');
             let data = new DataHandlerGET(`tax/submission/${dataAttribute}`);
             let result = yield data.fetchdata();
