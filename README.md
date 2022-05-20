@@ -11,6 +11,8 @@ To run the solution, Follow these steps:
 
 4.Run the project.
 
+5.Tests can be run after initial run.
+
 The Local DB will create after running in the "\Users\{UserProfile}\AppData\Local\" folder.
 
 
