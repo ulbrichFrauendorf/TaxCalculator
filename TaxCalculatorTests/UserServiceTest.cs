@@ -56,7 +56,7 @@ namespace TaxCalculatorTests
             var request = new AuthRequest
             {
                 Email = "admin@testsite.com",
-                Password = "P@ssw0rd",
+                Password = "nopass",
             };
 
             var user = service.Authenticate(request);
