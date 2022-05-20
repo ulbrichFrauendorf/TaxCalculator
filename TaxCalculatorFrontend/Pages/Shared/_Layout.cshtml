@@ -1,0 +1,77 @@
+﻿@using TaxCalculatorFrontend.Authentication.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tax Calculator</title>
+    <link rel="stylesheet" href="~/lib/alertify/css/alertify.css">
+    <link rel="stylesheet" href="~/lib/alertify/css/themes/bootstrap.css">
+    <link rel="stylesheet" href="~/lib/bootstrap5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TaxCalculatorFrontend.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Tax Calculator</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="~/" id="login-user" data-bs-toggle="modal" data-bs-target="#login-modal">Sign in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="~/" id="logout-user" style="display:none">Sign out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/TaxCalculator/DisplayTax">Calculate Tax</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="login-content">
+        <partial name="UserLogin" model="new WebUser()" />
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div id="main-content">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Tax Calculator by Ulbrich Frauendorf
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap5/js/bootstrap.min.js"></script>
+    <script src="~/lib/alertify/alertify.min.js"></script>
+
+    <script src="/js/app.js"></script>
+
+    @*Handlers*@
+    <script src="/js/datahandlers/ApiResult.js"></script>
+    <script src="/js/datahandlers/DataHandler.js"></script>
+    <script src="/js/datahandlers/FormHandler.js"></script>
+    <script src="/js/datahandlers/ErrorHandler.js"></script>
+
+    @*User Service*@
+    <script src="/js/userservice/ApiUser.js"></script>
+    <script src="/js/userservice/UserService.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

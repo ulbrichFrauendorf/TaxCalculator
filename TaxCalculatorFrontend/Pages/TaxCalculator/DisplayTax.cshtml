@@ -1,0 +1,28 @@
+﻿@page
+@using TaxCalculatorFrontend.TaxCalculator.Models
+
+<table class="table table-hover table-bordered table-sm" id="calc-list">
+    <thead>
+        <tr>
+            <td>Postal Code</td>
+            <td>Annual Income</td>
+            <td>Submission Date</td>
+            <td>Calculated Tax</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody id="submission-table">
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taxcalc-modal">New tax calculation</button>
+<div id="taxcalc-content">
+    <partial name="CaptureTax" model="new CaptureTaxModel()" />
+    <partial name="EditTax" model="new EditTaxModel()" />
+</div>
+
+@section scripts{
+<script src="/js/taxcalculator/TaxSubmissionResponse.js"></script>
+<script src="/js/taxcalculator/TaxSubmissionSubmit.js"></script>
+<script src="/js/taxcalculator/TaxCalculatorService.js"></script>
+}

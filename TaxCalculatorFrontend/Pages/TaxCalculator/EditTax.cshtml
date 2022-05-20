@@ -1,0 +1,31 @@
+﻿@using TaxCalculatorFrontend.TaxCalculator.Models
+@model EditTaxModel
+
+<div class="modal fade" tabindex="-1" role="dialog" id="taxcalc-edit-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="form-editTax">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Tax Submission</h5>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" asp-for="Id" id="Id" class="edit-id"/>
+                <div class="form-group">
+                        <input type="hidden" asp-for="PostalCode" class="form-control ">
+                        <label asp-for="PostalCode"></label>
+                        <select id="PostalCodeSelect"  class="form-control edit-postal" onchange="updateInput()">
+                            <option>Choose a Postal Code</option>
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <label asp-for="AnnualIncome"></label>
+                    <input type="number" asp-for="AnnualIncome" class="form-control edit-income">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="submit-edit-taxcalc">Edit Tax</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
