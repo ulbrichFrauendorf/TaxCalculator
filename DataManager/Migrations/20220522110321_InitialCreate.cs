@@ -67,7 +67,7 @@ namespace DataManager.Migrations
                         column: x => x.RateTypeId,
                         principalTable: "RateTypes",
                         principalColumn: "RateTypeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -90,7 +90,7 @@ namespace DataManager.Migrations
                         column: x => x.RateTypeId,
                         principalTable: "RateTypes",
                         principalColumn: "RateTypeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -113,7 +113,7 @@ namespace DataManager.Migrations
                         column: x => x.RateTypeId,
                         principalTable: "RateTypes",
                         principalColumn: "RateTypeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,7 +133,7 @@ namespace DataManager.Migrations
                         column: x => x.TaxTypeId,
                         principalTable: "TaxType",
                         principalColumn: "TaxTypeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -155,7 +155,7 @@ namespace DataManager.Migrations
                         column: x => x.PostalCodeTaxMapId,
                         principalTable: "PostalCodeTaxMap",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
