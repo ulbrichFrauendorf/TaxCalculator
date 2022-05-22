@@ -1,9 +1,8 @@
+using DataManager.Data;
+using DataServices.Authorization;
+using DataServices.Authorization.Middleware;
+using DataServices.TaxCalculator;
 using Microsoft.EntityFrameworkCore;
-using TaxCalculatorAPI.Authorization;
-using TaxCalculatorAPI.Authorization.Middleware;
-using TaxCalculatorAPI.Data;
-using TaxCalculatorAPI.TaxCalculator;
-using TaxCalculatorAPI.TaxCalculator.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

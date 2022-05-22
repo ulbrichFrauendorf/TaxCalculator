@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using DataManager.Data;
+using DataServices.TaxCalculator;
+using Microsoft.Extensions.Configuration;
 using Moq;
 using NUnit.Framework;
 using System;
-using TaxCalculatorAPI.Data;
-using TaxCalculatorAPI.TaxCalculator;
 
 namespace TaxCalculatorTests;
 

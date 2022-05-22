@@ -1,13 +1,14 @@
 using AutoMapper;
+using DataManager.Data;
+using DataServices.Authorization;
+using DataServices.Authorization.Middleware;
+using DataServices.Authorization.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
 using System;
 using System.Linq;
-using TaxCalculatorAPI.Authorization;
-using TaxCalculatorAPI.Authorization.Middleware;
-using TaxCalculatorAPI.Data;
 
 namespace TaxCalculatorTests
 {

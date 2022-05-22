@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculatorTests", "TaxCa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculatorFrontend", "TaxCalculatorFrontend\TaxCalculatorFrontend.csproj", "{B8BC2D12-BE54-4412-B22A-CE15FD9E814A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManager", "DataManager\DataManager.csproj", "{3FC3E60F-968A-428D-92E5-971C2FB2EC3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataServices", "DataServices\DataServices.csproj", "{F12FE357-5085-44FE-8274-DCBAC8F0672C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{B8BC2D12-BE54-4412-B22A-CE15FD9E814A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8BC2D12-BE54-4412-B22A-CE15FD9E814A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8BC2D12-BE54-4412-B22A-CE15FD9E814A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FC3E60F-968A-428D-92E5-971C2FB2EC3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FC3E60F-968A-428D-92E5-971C2FB2EC3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FC3E60F-968A-428D-92E5-971C2FB2EC3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FC3E60F-968A-428D-92E5-971C2FB2EC3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F12FE357-5085-44FE-8274-DCBAC8F0672C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F12FE357-5085-44FE-8274-DCBAC8F0672C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F12FE357-5085-44FE-8274-DCBAC8F0672C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F12FE357-5085-44FE-8274-DCBAC8F0672C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
