@@ -161,7 +161,7 @@ namespace DataManager.Migrations
             migrationBuilder.InsertData(
                 table: "ApiUsers",
                 columns: new[] { "ApiUserId", "Email", "Password" },
-                values: new object[] { 1, "admin@testsite.com", "$2a$11$MdXGIAUgpOgnwE/7THv62eRo.U.O0dew4wYMUBSVOOuG//.6BIxua" });
+                values: new object[] { 1, "admin@testsite.com", "$2a$11$y/hnPEN1y/WrJRdTrDaZ8edusBTgCuBOIwKwn60u2Sgkv.UA31rUG" });
 
             migrationBuilder.InsertData(
                 table: "RateTypes",

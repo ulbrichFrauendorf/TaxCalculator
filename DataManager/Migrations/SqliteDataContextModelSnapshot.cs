@@ -40,7 +40,7 @@ namespace DataManager.Migrations
                         {
                             ApiUserId = 1,
                             Email = "admin@testsite.com",
-                            Password = "$2a$11$MdXGIAUgpOgnwE/7THv62eRo.U.O0dew4wYMUBSVOOuG//.6BIxua"
+                            Password = "$2a$11$y/hnPEN1y/WrJRdTrDaZ8edusBTgCuBOIwKwn60u2Sgkv.UA31rUG"
                         });
                 });
 

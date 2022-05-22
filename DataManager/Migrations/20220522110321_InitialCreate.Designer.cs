@@ -11,13 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataManager.Migrations
 {
     [DbContext(typeof(SqliteDataContext))]
-<<<<<<<< HEAD:DataManager/Migrations/20220522105353_InitialCreate.Designer.cs
-    [Migration("20220522105353_InitialCreate")]
+    [Migration("20220522110321_InitialCreate")]
     partial class InitialCreate
-========
-    [Migration("20220520084630_Initial_Re_Create")]
-    partial class Initial_Re_Create
->>>>>>>> 5aab54e053e8fa5d7a019a470e9f635cf5ed9744:DataManager/Migrations/20220520084630_Initial_Re_Create.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,11 +42,7 @@ namespace DataManager.Migrations
                         {
                             ApiUserId = 1,
                             Email = "admin@testsite.com",
-<<<<<<<< HEAD:DataManager/Migrations/20220522105353_InitialCreate.Designer.cs
-                            Password = "$2a$11$MdXGIAUgpOgnwE/7THv62eRo.U.O0dew4wYMUBSVOOuG//.6BIxua"
-========
-                            Password = "$2a$11$g2scD.CznFok8NhKilEXi.f/eiBhbkhvryM1pmpdWLFtYbED3ycxq"
->>>>>>>> 5aab54e053e8fa5d7a019a470e9f635cf5ed9744:DataManager/Migrations/20220520084630_Initial_Re_Create.Designer.cs
+                            Password = "$2a$11$y/hnPEN1y/WrJRdTrDaZ8edusBTgCuBOIwKwn60u2Sgkv.UA31rUG"
                         });
                 });
 
