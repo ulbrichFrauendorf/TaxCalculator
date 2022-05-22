@@ -61,7 +61,9 @@ namespace DataServices.TaxCalculator
             TaxCalculatorExceptionHandler.ThrowIfNull(rate);
 
             if (rate.RateTypeId == 1)
+            {
                 taxAmount = rate.RateValue;
+            }
             else if (rate.RateTypeId == 2)
             {
                 taxAmount = annualIncome * rate.RateValue;

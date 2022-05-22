@@ -2,8 +2,6 @@ using DataManager.Models.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Linq;
 
 namespace DataServices.Authorization.Middleware.Attributes
 {

@@ -1,5 +1,3 @@
-using System;
-
 namespace DataServices.Authorization.Middleware.Attributes
 {
     [AttributeUsage(AttributeTargets.Method)]

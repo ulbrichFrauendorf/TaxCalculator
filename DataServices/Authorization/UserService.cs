@@ -1,12 +1,9 @@
 using AutoMapper;
-using BCrypt.Net;
 using DataManager.Data;
 using DataManager.Models.Authorization;
 using DataServices.Authorization.Middleware;
 using DataServices.Authorization.Models;
 using DataServices.ExceptionHandlers;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace DataServices.Authorization
 {
