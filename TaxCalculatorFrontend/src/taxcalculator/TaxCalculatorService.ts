@@ -6,6 +6,7 @@ $(document).ready(function () {
 const submitTable = document.querySelector('#submission-table');
 
 const loadSubmissions = async () => {
+    loadPostalCodes()
     submitTable.innerHTML = '';
     let data = new DataHandlerGET('tax/submission');
     let result = await data.fetchdata<TaxSubmissionResponse[]>();
@@ -37,7 +38,6 @@ const loadSubmissions = async () => {
     for (const editlink of Array.from(editLinks)) {
         editlink.addEventListener("click",
             async () => {
-                loadPostalCodes()
                 let dataAttribute = editlink.getAttribute('data-id');
                 let data = new DataHandlerGET(`tax/submission/${dataAttribute}`)
                 let result = await data.fetchdata<TaxSubmissionEdit>();
