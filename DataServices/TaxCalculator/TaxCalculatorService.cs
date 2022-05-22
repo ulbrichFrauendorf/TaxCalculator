@@ -1,4 +1,5 @@
 ﻿using DataManager.Data;
+using DataServices.ExceptionHandlers;
 using DataServices.TaxCalculator.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,7 +47,7 @@ namespace DataServices.TaxCalculator
                 .Include(s => s.PostalCodeTaxMap).FirstOrDefault(x => x.Id == id);
 
             if (taxSubmission == null)
-                throw new KeyNotFoundException("Tax calculation record not found");
+                throw new ServiceException("Tax calculation record not found");
 
             return taxSubmission.ToResponse();
         }

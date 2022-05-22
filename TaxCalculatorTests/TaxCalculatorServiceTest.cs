@@ -60,7 +60,8 @@ namespace TaxCalculatorTests
         public void Delete_TaxSubmission_Test()
         {
             //Cannot delete due toe Referential constraint All History to be kept
-            Assert.Throws<InvalidOperationException>(() => service.DeleteTaxSubmission(2));
+            service.PostTaxSubmission(TaxSubmitTestData.GenericTestData);
+            Assert.Throws<InvalidOperationException>(() => service.DeleteTaxSubmission(1));
 
         }
         [Test]

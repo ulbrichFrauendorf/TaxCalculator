@@ -3,6 +3,7 @@ using DataManager.Data;
 using DataServices.Authorization;
 using DataServices.Authorization.Middleware;
 using DataServices.Authorization.Models;
+using DataServices.ExceptionHandlers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -34,7 +35,7 @@ namespace TaxCalculatorTests
         [Test]
         public void Register_User_Test()
         {
-            Assert.Catch<Exception>(() => service.Register(new AuthRequest { Email = "test", Password = "test" }));
+            Assert.Catch<ServiceException>(() => service.Register(new AuthRequest { Email = "admin@testsite.com", Password = "nopass" }));
         }
 
         [Test]
@@ -60,8 +61,7 @@ namespace TaxCalculatorTests
                 Password = "nopass",
             };
 
-            var user = service.Authenticate(request);
-            Assert.IsNull(user.Token);
+            Assert.Catch<ServiceException>(() => service.Authenticate(request));
         }
 
     }
